@@ -9,7 +9,11 @@ void selection_sort(int *array, size_t size)
 {
 	unsigned int i, j, min_index;
 
+	if (!array)
+		return;
+
 	/* One by one move boundary of unsorted subarray */
+
 	for (i = 0; i < size - 1; i++)
 	{
 		/* Find the minimum element in unsorted array */
