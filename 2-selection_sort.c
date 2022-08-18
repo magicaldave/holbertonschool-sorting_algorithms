@@ -19,6 +19,7 @@ void selection_sort(int *array, size_t size)
 				min_index = j;
 		/*Swap the found minimum element with the first element*/
 		swap(&array[min_index], &array[i]);
-		print_array(array, size);
+		if (i != min_index)
+			print_array(array, size);
 	}
 }
