@@ -46,6 +46,6 @@ int partition(int *array, int start, int end, size_t size);
 void merge_sort(int *array, size_t size);
 /* 103-merge_sort.c */
 void merge_sort(int *array, size_t size);
-void *merge_sort_thread(void *args);
-void print_array_mt(const int *array, size_t size);
+void mergeSortWrap(int *arr, int *temp, size_t size);
+void merge(int *l, size_t size_l, int *r, size_t size_r, int *tmp);
 #endif
