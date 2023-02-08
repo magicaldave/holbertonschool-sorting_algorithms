@@ -48,4 +48,5 @@ void merge_sort(int *array, size_t size)
 	if (!temp)
 		return;
         mergeSortWrap(array, temp, size);
+	free(temp);
 }
