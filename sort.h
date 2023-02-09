@@ -19,14 +19,15 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 /**
- * struct merge_sort_args - function arguments for merge_sort when split into a thread
+ * struct merge_sort_args - function arguments for merge_sort mt version
  *
  * @array: Array to be sorted by merge_sort
  * @size: Size of the array to be sorted
  */
-struct merge_sort_args {
-        int *array;
-        size_t size;
+struct merge_sort_args
+{
+	int *array;
+	size_t size;
 };
 /*Provided Functions*/
 void print_list(const listint_t *list);
