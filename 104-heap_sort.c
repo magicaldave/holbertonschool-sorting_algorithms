@@ -20,7 +20,8 @@ void swap(int *a, int *b)
  * heapify - To heapify a subtree rooted with node curr_idx
  * @curr_idx: - largest element provided as arg
  * @arr: array to heapify
- * @N: Total length of heap
+ * @arr_size: total size of array to heapify
+ * @N: Subsection length
  */
 void heapify(int arr[], int N, int curr_idx, size_t arr_size)
 {
@@ -61,7 +62,7 @@ void heapify(int arr[], int N, int curr_idx, size_t arr_size)
 /**
  * heap_sort - function to heapify and sort arrap
  * @arr: array to sort
- * @N: number of elements in array
+ * @size: number of elements in array
  */
 void heap_sort(int arr[], size_t size)
 {
@@ -73,12 +74,12 @@ void heap_sort(int arr[], size_t size)
 	for (i = size - 1; i > 0; i--)
 	{
 		/* printf("Swapping positions 0 and %d:\n", i); */
-                swap(&arr[0], &arr[i]);
-                print_array(arr, size);
-                /*
-                 * Heapify root element to get highest element at
-                 * root again
-                 */
-                heapify(arr, i, 0, size);
+		swap(&arr[0], &arr[i]);
+		print_array(arr, size);
+		/*
+		 * Heapify root element to get highest element at
+		 * root again
+		 */
+		heapify(arr, i, 0, size);
 	}
 }
