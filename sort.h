@@ -49,4 +49,7 @@ void merge_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void mergeSortWrap(int *arr, int *temp, size_t size);
 void merge(int *l, size_t size_l, int *r, size_t size_r, int *tmp);
+/* 104-heap_sort.c */
+void heapify(int arr[], int N, int curr_idx);
+void heap_sort(int arr[], int N);
 #endif
