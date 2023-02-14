@@ -70,7 +70,7 @@ void heap_sort(int arr[], size_t size)
 	for (i = size / 2 - 1; i >= 0; i--)
 		heapify(arr, size, i, size);
 	/* Heap sort */
-	for (i = size - 1; i >= 0; i--)
+	for (i = size - 1; i > 0; i--)
 	{
 		/* printf("Swapping positions 0 and %d:\n", i); */
                 swap(&arr[0], &arr[i]);
