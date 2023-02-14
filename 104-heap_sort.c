@@ -22,7 +22,7 @@ void swap(int *a, int *b)
  * @arr: array to heapify
  * @N: Total length of heap
  */
-void heapify(int arr[], int N, int curr_idx)
+void heapify(int arr[], int N, int curr_idx, size_t arr_size)
 {
 	/* Find largest among root, left child and right child */
 
@@ -52,8 +52,9 @@ void heapify(int arr[], int N, int curr_idx)
 	{
 		/* printf("Swapping positions %d and %d:\n", curr_idx, largest); */
 		swap(&arr[curr_idx], &arr[largest]);
+		print_array(arr, arr_size);
 		/* Recursively heapify the affected sub-tree */
-		heapify(arr, N, largest);
+		heapify(arr, N, largest, arr_size);
 	}
 }
 
@@ -62,21 +63,22 @@ void heapify(int arr[], int N, int curr_idx)
  * @arr: array to sort
  * @N: number of elements in array
  */
-void heap_sort(int arr[], int N)
+void heap_sort(int arr[], size_t size)
 {
 	int i;
 	/* Build max heap */
-	for (i = N / 2 - 1; i >= 0; i--)
-		heapify(arr, N, i);
+	for (i = size / 2 - 1; i >= 0; i--)
+		heapify(arr, size, i, size);
 	/* Heap sort */
-	for (i = N - 1; i >= 0; i--)
+	for (i = size - 1; i >= 0; i--)
 	{
 		/* printf("Swapping positions 0 and %d:\n", i); */
-		swap(&arr[0], &arr[i]);
-		/*
-		 * Heapify root element to get highest element at
-		 * root again
-		 */
-		heapify(arr, i, 0);
+                swap(&arr[0], &arr[i]);
+                print_array(arr, size);
+                /*
+                 * Heapify root element to get highest element at
+                 * root again
+                 */
+                heapify(arr, i, 0, size);
 	}
 }

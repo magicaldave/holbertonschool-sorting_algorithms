@@ -50,6 +50,6 @@ void merge_sort(int *array, size_t size);
 void mergeSortWrap(int *arr, int *temp, size_t size);
 void merge(int *l, size_t size_l, int *r, size_t size_r, int *tmp);
 /* 104-heap_sort.c */
-void heapify(int arr[], int N, int curr_idx);
-void heap_sort(int arr[], int N);
+void heapify(int arr[], int N, int curr_idx, size_t arr_size);
+void heap_sort(int arr[], size_t size);
 #endif
