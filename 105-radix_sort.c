@@ -29,10 +29,9 @@ int max_int(int *array, size_t n)
 
 void radix_sort(int *array, size_t size)
 {
-	int digits = 0, i, max, num, pow;
+	int digits = 0, i, j, max, num, pow;
 	int count[10];
 	int *new_array;
-	size_t j;
 
 	if (!array || size < 2)
 		return;
@@ -48,7 +47,7 @@ void radix_sort(int *array, size_t size)
 		new_array = malloc(sizeof(int) * size);
 		for (j = 0; j < 10; j++)
 			count[j] = 0;
-		for (j = 0; j < size; j++)
+		for (j = 0; (size_t) j < size; j++)
 		{
 			num = (array[j] / pow) % 10;
 			count[num]++;
@@ -61,8 +60,8 @@ void radix_sort(int *array, size_t size)
 			new_array[count[num] - 1] = array[j];
 			count[num]--;
 		}
-		for (j = 0; j < size; j++)
-			array[j] = new_array[j];
+                for (j = 0; (size_t) j < size; j++)
+                        array[j] = new_array[j];
 		pow *= 10;
 		free(new_array);
 		print_array(array, size);
