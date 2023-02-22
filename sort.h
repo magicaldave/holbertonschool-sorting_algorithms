@@ -54,4 +54,5 @@ void heapify(int arr[], int N, int curr_idx, size_t arr_size);
 void heap_sort(int arr[], size_t size);
 /* 105-radix_sort.c */
 void radix_sort(int *array, size_t size);
+int max_int(int *array, size_t n);
 #endif

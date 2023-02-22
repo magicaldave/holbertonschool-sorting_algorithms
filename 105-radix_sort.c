@@ -7,15 +7,15 @@
  * Return: The largest number from the array
 */
 
-int max_int(int arr[], int n)
+int max_int(int *array, size_t n)
 {
-	int i;
-	int max = arr[0];
+	size_t i;
+	size_t max = array[0];
 
 	for (i = 1; i < n; i++)
 	{
-		if (arr[i] > max)
-			max = arr[i];
+		if (array[i] > max)
+			max = array[i];
 	}
 	return (max);
 }
@@ -27,15 +27,15 @@ int max_int(int arr[], int n)
  * Return: void
 */
 
-void radix_sort(int arr[], int n)
+void radix_sort(int *array, size_t size)
 {
 	int digits = 0, i, j, max, num, pow;
 	int count[10];
 	int *new_array;
 
-	if (arr == NULL || n < 2)
+	if (!array || size < 2)
 		return;
-	max = max_int(arr, n);
+	max = max_int(array, size);
 	while (max > 0)
 	{
 		digits++;
@@ -44,26 +44,26 @@ void radix_sort(int arr[], int n)
 	pow = 1;
 	for (i = 0; i < digits; i++)
 	{
-		new_array = malloc(sizeof(int) * n);
+		new_array = malloc(sizeof(int) * size);
 		for (j = 0; j < 10; j++)
 			count[j] = 0;
-		for (j = 0; j < n; j++)
+		for (j = 0; j < size; j++)
 		{
-			num = (arr[j] / pow) % 10;
+			num = (array[j] / pow) % 10;
 			count[num]++;
 		}
 		for (j = 1; j < 10; j++)
 			count[j] += count[j - 1];
-		for (j = n - 1; j >= 0; j--)
+		for (j = size - 1; j >= 0; j--)
 		{
-			num = (arr[j] / pow) % 10;
-			new_array[count[num] - 1] = arr[j];
+			num = (array[j] / pow) % 10;
+			new_array[count[num] - 1] = array[j];
 			count[num]--;
 		}
-		for (j = 0; j < n; j++)
-			arr[j] = new_array[j];
+		for (j = 0; j < size; j++)
+			array[j] = new_array[j];
 		pow *= 10;
 		free(new_array);
-		print_array(arr, n);
+		print_array(array, size);
 	}
 }
