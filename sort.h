@@ -52,4 +52,6 @@ void merge(int *l, size_t size_l, int *r, size_t size_r, int *tmp);
 /* 104-heap_sort.c */
 void heapify(int arr[], int N, int curr_idx, size_t arr_size);
 void heap_sort(int arr[], size_t size);
+/* 105-radix_sort.c */
+void radix_sort(int *array, size_t size);
 #endif
