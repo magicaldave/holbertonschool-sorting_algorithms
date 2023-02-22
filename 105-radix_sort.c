@@ -2,7 +2,7 @@
 
 /**
  * max_int - Finds the largest number in an array of integers
- * @arr: The array to search through
+ * @array: The array to search through
  * @n: The number of digits of the array (to look through on the left side)
  * Return: The largest number from the array
 */
@@ -22,8 +22,8 @@ int max_int(int *array, size_t n)
 
 /**
  * radix_sort - Sorting using place values from least significant digit
- * @arr: The array to sort
- * @n: the number of digits of the array (to sort on the left side)
+ * @array: The array to sort
+ * @size: the number of digits of the array (to sort on the left side)
  * Return: void
 */
 
@@ -60,8 +60,8 @@ void radix_sort(int *array, size_t size)
 			new_array[count[num] - 1] = array[j];
 			count[num]--;
 		}
-                for (j = 0; (size_t) j < size; j++)
-                        array[j] = new_array[j];
+		for (j = 0; (size_t) j < size; j++)
+			array[j] = new_array[j];
 		pow *= 10;
 		free(new_array);
 		print_array(array, size);
